@@ -7,7 +7,7 @@ route -n > /opt/backup/psaux/$date_bk/route.txt
 df -h > /opt/backup/psaux/$date_bk/df.txt
 iptables -S > /opt/backup/psaux/$date_bk/iptables.txt
 ifconfig > /opt/backup/psaux/$date_bk/ifconfig.txt
-cp -rp /etc/sysconfig/network-scripts/ifcfg* /opt/backup/psaux/$date_bk/
+cp -rp /etc/sysconfig/network-scripts /opt/backup/psaux/$date_bk/
 ip a > /opt/backup/psaux/$date_bk/ipa.txt
 netstat -apln > /opt/backup/psaux/$date_bk/netstat.txt
 lsblk > /opt/backup/psaux/$date_bk/lsblk.txt
