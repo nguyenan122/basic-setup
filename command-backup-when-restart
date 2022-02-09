@@ -1,0 +1,17 @@
+date_bk=`date +"%Y%m%d_%H%M"`
+cur_user_bk=`whoami`
+mkdir -p /opt/backup/psaux/$date_bk
+cd /opt/backup/psaux/$date_bk
+ps aux > /opt/backup/psaux/$date_bk/psaux.txt
+route -n > /opt/backup/psaux/$date_bk/route.txt
+df -h > /opt/backup/psaux/$date_bk/df.txt
+iptables -S > /opt/backup/psaux/$date_bk/iptables.txt
+ifconfig > /opt/backup/psaux/$date_bk/ifconfig.txt
+cp -rp /etc/sysconfig/network-scripts/ifcfg* /opt/backup/psaux/$date_bk/
+ip a > /opt/backup/psaux/$date_bk/ipa.txt
+netstat -apln > /opt/backup/psaux/$date_bk/netstat.txt
+lsblk > /opt/backup/psaux/$date_bk/lsblk.txt
+fdisk -l > /opt/backup/psaux/$date_bk/fdisk.txt
+history > /opt/backup/psaux/$date_bk/history.txt
+for user in $(getent passwd | cut -f1 -d: ); do echo ==============================================${user}; crontab -u $user -l; done > /opt/backup/psaux/$date_bk/crontab.txt
+
